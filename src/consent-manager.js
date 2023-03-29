@@ -202,9 +202,10 @@ export default class ConsentManager {
             const vars = service.vars || {}
             const optOut = (service.optOut !== undefined ? service.optOut : (this.config.optOut || false))
             const required = (service.required !== undefined ? service.required : (this.config.required || false))
+            const requiredConsent = (service.requiredConsent !== undefined ? service.requiredConsent : (this.config.requiredConsent || false))
             //opt out and required services are always treated as confirmed
             const confirmed = this.confirmed || optOut || dryRun || interactive
-            const consent = (this.getConsent(service.name) && confirmed) || required
+            const consent = (this.getConsent(service.name) && confirmed) || (required && !requiredConsent)
             const handlerOpts = {service: service, config: this.config, vars: vars, consents: this.consents, confirmed: this.confirmed}
 
             if (state !== consent)
