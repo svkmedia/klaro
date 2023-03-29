@@ -21,6 +21,7 @@ export default class ServiceItem extends React.Component {
             t,
         } = this.props;
         const required = this.props.required || false;
+        const requiredConsent = this.props.requiredConsent || false;
         const optOut = this.props.optOut || false;
         const purposes = this.props.purposes || [];
         const onChange = (e) => {
