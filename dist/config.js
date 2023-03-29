@@ -273,8 +273,6 @@ var klaroConfig = {
             // be disabled by the user.
             required: false,
 
-            requiredConsent: false,
-
             // If "optOut" is set to true, Klaro will load this service even before
             // the user gave explicit consent.
             // We recommend always leaving this "false".
